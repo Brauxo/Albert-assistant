@@ -1,0 +1,8 @@
+streamlit
+streamlit-chat
+ollama
+streamlit-authenticator
+SpeechRecognition 
+pyaudio
+pyttsx3
+pynacl

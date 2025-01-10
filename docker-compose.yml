@@ -1,0 +1,12 @@
+#PAS FINI !!!!
+version: '3'
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - MODEL_NAME=${MODEL_NAME}
+    volumes:
+      - ./data:/app/data  
