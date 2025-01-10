@@ -9,6 +9,15 @@
 
 **Année 2025**
 
+## **REQUIREMENTS**
+
+Attention pour faire tourner ce projet dans des conditions optimale il est nécessaire d'avoir : 
+
+- Un processeur multicoeur ou une carte graphique avec 4 Gb de VRAM. 
+- Au moins 8 Gb de RAM (12 si CPU)
+
+(si c'est insuffisant il faut utiliser [llama3.2:1b](https://ollama.com/library/llama3.2))
+
 ## **Description**
 
 Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un modèle LLM (Large Language Model) de votre choix, avec le modèle **llama3.2** utilisé par défaut. Cette application offre des fonctionnalités d'interaction en langage naturel via texte ou microphone, ainsi que la possibilité de sauvegarder et télécharger l'historique des conversations.
@@ -28,7 +37,7 @@ Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un
 
 ### **1 - Prérequis d'installation**
 
-#### **Setup AWS**
+#### **I - Setup AWS**
 
  **[Docker Desktop](https://www.docker.com/products/docker-desktop/) (en cours de développement)**
  - Docker sera utilisé pour conteneuriser et déployer l'application à l'avenir. Faites une installation classique pour votre système d'exploitation.
@@ -36,9 +45,9 @@ Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un
  **AWS (en cours de développement)**
  - Des configurations supplémentaires pour AWS seront fournies ultérieurement.
 
-#### **Instalation locale**
+#### **II - installation locale**
 
-Avant de commencer, il faut installer ces 
+Avant de commencer, il faut installer les outils suivants :
 
 1. **[ollama](https://ollama.com/)**
  - Installez Ollama pour accéder aux modèles LLM.
@@ -47,7 +56,7 @@ Avant de commencer, il faut installer ces
 2. **[Git](https://git-scm.com/)**
  - Nécessaire pour cloner le projet depuis le dépôt GitHub.
 
-3. **[FFmpeg](https://ffmpeg.org/download.html) [NON NECESSAIRE (SAUF SI L'AUDIO EST SOUHAITé**
+3. **[FFmpeg](https://ffmpeg.org/download.html) [NON NECESSAIRE (SAUF SI L'AUDIO EST SOUHAITE)]**
  - Permet de lire et de traiter les fichiers audio.
  - Vous pouvez utiliser ce dépôt pour obtenir une version précompilée : [FFmpeg Builds](https://github.com/BtbN/FFmpeg-Builds/releases).
  - Ajoutez **ffmpeg.exe** à votre `PATH` pour un accès global.
