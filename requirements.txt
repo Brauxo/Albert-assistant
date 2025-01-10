@@ -3,6 +3,6 @@ streamlit-chat
 ollama
 streamlit-authenticator
 SpeechRecognition 
-pyaudio
+PyAudio
 pyttsx3
 pynacl

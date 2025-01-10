@@ -39,8 +39,8 @@ Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un
 
 #### **I - Setup AWS**
 
- **[Docker Desktop](https://www.docker.com/products/docker-desktop/) (en cours de développement)**
- - Docker sera utilisé pour conteneuriser et déployer l'application à l'avenir. Faites une installation classique pour votre système d'exploitation.
+ **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**
+ - Docker est utilisé pour conteneuriser et déployer l'application. 
 
  **AWS (en cours de développement)**
  - Des configurations supplémentaires pour AWS seront fournies ultérieurement.
@@ -79,7 +79,8 @@ pip install -r requirements.txt
 
 ### **3 - Run**
 
-Pour lancer l'application en local (sur son pc):
+#### **I - Pour lancer l'application en local (sur son pc):**
+
 
 1.  Assurez-vous que les modèles LLM nécessaires sont téléchargés via Ollama et que Ollama soit lancé :
 ```
@@ -98,13 +99,26 @@ streamlit run App.py`
 
 3.  Accédez à l'interface via votre navigateur à l'adresse : http://localhost:8501
 
+#### **I - Pour lancer l'application sur Docker :**
+
+
+Pour exécuter le projet sur Docker, il suffit de rentrer la commande suivante
+!!! IMPORTANT : L'initialisation du docker prend du temps (environ 10 minutes sur mon pc)
+```
+docker compose up -d
+```
+
+L'app est désormais accessible sur ce lien.
+
+http://localhost:8501
+
 * * * * *
 
 ### **4 - Fonctionnalités**
 
 L'application offre les fonctionnalités suivantes :
 
-1.  **Interaction via texte ou voix** :
+1.  **Interaction via texte ou voix [DESACTIVE SUR DOCKER]**:
     -   Entrez vos messages via le clavier ou utilisez le microphone pour une interaction vocale.
 
 2.  **Gestion de l'historique des conversations** :

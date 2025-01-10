@@ -1,12 +1,32 @@
-#PAS FINI !!!!
-version: '3'
+version: "3.9"
 services:
-  bot:
+  chatbot-app:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: always
+    ports:
+      - "8501:8501"
     environment:
-      - MODEL_NAME=${MODEL_NAME}
+      - BASE_URL=http://ollama:11434
+      - STREAMLIT_SERVER_ENABLE_CORS=false
+      - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+    depends_on:
+      - ollama
+    networks:
+      - chatbot-net
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11435:11434"  # tourne sur localhost:11435
     volumes:
-      - ./data:/app/data  
+      - ./model_files:/model_files  
+    tty: true
+    networks:
+      - chatbot-net
+
+networks:
+  chatbot-net:
+    driver: bridge
+    
