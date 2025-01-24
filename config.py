@@ -11,3 +11,8 @@ MODEL_NAME = "llama3.2"  # possibilité de changer avec n'importe quel modèle
 SYSTEM_PROMPT = "You are a skilled AI assistant"
 
 LANGUAGE = 'fr-FR' #pour la détection audio
+
+# Paramètre de la BDD
+MONGO_URI = "mongodb://localhost:27017/"
+DB_NAME = "chatbot_db"
+COLLECTION_NAME = "courses"

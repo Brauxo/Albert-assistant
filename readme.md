@@ -56,7 +56,10 @@ Avant de commencer, il faut installer les outils suivants :
 2. **[Git](https://git-scm.com/)**
  - Nécessaire pour cloner le projet depuis le dépôt GitHub.
 
-3. **[FFmpeg](https://ffmpeg.org/download.html) [NON NECESSAIRE (SAUF SI L'AUDIO EST SOUHAITE)]**
+3. **[MongoDB](https://www.mongodb.com/docs/manual/installation/)**
+ - Pour créer nos bases de données qui vont être accéder par le chatbot
+
+4. **[FFmpeg](https://ffmpeg.org/download.html) [NON NECESSAIRE (SAUF SI L'AUDIO EST SOUHAITE)]**
  - Permet de lire et de traiter les fichiers audio.
  - Vous pouvez utiliser ce dépôt pour obtenir une version précompilée : [FFmpeg Builds](https://github.com/BtbN/FFmpeg-Builds/releases).
  - Ajoutez **ffmpeg.exe** à votre `PATH` pour un accès global.
@@ -89,6 +92,11 @@ pip install -r requirements.txt
 
 ```
 `ollama run llama3.2`
+```
+
+Pour créer une base de données avec celle fournie (le json).
+```
+python load_json.py
 ```
 
 2.  Exécutez l'application Streamlit (obligatoire !) :
