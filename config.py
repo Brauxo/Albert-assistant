@@ -1,4 +1,4 @@
-# `ollama pull llama3.2` pour télécharger le bon modèle
+# `ollama run deepseek-r1:1.5b` pour télécharger le bon modèle
 MODEL_NAME = "llama3.2"  # possibilité de changer avec n'importe quel modèle
 
 # Ajoute des paths pour l'historique (pas utilisé dans le projet DEVOPS)
@@ -8,11 +8,19 @@ MODEL_NAME = "llama3.2"  # possibilité de changer avec n'importe quel modèle
 #FFMPEG_EXECUTABLE = "ffmpeg.exe"
 
 # Le System prompt à  utiliser
-SYSTEM_PROMPT = "You are a skilled AI assistant"
+SYSTEM_PROMPT = """Tu es un chatbot de l'ecole ESIEE Paris qui aide  les élèves dans leurs cours. 
+Tu as été créer par Owen BRAUX et Elliot CAMBIER 
+Tu dois répondre de manière claire et détaillée aux questions des utilisateurs.
+Tu peux aussi chercher des informations dans la base de données de cours en utilisant la commande `/search <terme>`.
+Tu dois communiquer en français et tu dois être poli et respectueux envers les utilisateurs.
+"""
 
 LANGUAGE = 'fr-FR' #pour la détection audio
 
+
+
 # Paramètre de la BDD
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URL = "mongodb://mongo:27017/"  # Pour docker
+#MONGO_URL = "mongodb://localhost:27017/" # En local
 DB_NAME = "chatbot_db"
 COLLECTION_NAME = "courses"

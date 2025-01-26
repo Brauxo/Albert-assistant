@@ -1,6 +1,6 @@
 import speech_recognition as sr
 from ollama import chat
-from config import MODEL_NAME, SYSTEM_PROMPT, LANGUAGE, MONGO_URI, DB_NAME,COLLECTION_NAME
+from config import MODEL_NAME, SYSTEM_PROMPT, LANGUAGE, MONGO_URL, DB_NAME,COLLECTION_NAME
 import os
 import pymongo 
 from bson import ObjectId
@@ -11,7 +11,7 @@ class Utils:
     def get_db_connection():
         """Connecter à la base de données MongoDB."""
         try:
-            client = pymongo.MongoClient(MONGO_URI)
+            client = pymongo.MongoClient(MONGO_URL)
             return client[DB_NAME]  
         except Exception as e:
             print(f"❌ Erreur de connexion à MongoDB : {e}")

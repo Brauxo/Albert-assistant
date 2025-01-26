@@ -90,8 +90,12 @@ pip install -r requirements.txt
 `ollama start
 ```
 
+
+
+Nous conseillons llama3.2 ou llama3.2:1b . 
+En alternative : Le modèle DeepSeek-R1:1.5B, récemment lancé, est particulièrement intéressant car il nécessite très peu de puissance et offre des performances correctes. 
 ```
-`ollama run llama3.2`
+ollama run llama3.2 
 ```
 
 Pour créer une base de données avec celle fournie (le json).

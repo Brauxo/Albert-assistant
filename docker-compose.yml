@@ -10,8 +10,12 @@ services:
       - BASE_URL=http://ollama:11434
       - STREAMLIT_SERVER_ENABLE_CORS=false
       - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=chatbot_db
+      - COLLECTION_NAME=courses
     depends_on:
       - ollama
+      - mongo
     networks:
       - chatbot-net
 
@@ -26,7 +30,19 @@ services:
     networks:
       - chatbot-net
 
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - chatbot-net
+
 networks:
   chatbot-net:
     driver: bridge
-    
+
+volumes:
+  mongo-data:
