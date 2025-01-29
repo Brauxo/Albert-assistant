@@ -98,16 +98,21 @@ class Interface:
         """Affiche l'historique de la conversation"""
         if st.session_state.show_full_history:
             if st.session_state.chat_history:
-                st.write("### Historique des conversations :")
+                st.write("### Conversation actuel : ")
 
-                # Affiche les messages les plus récents en premier
                 for message in reversed(st.session_state.chat_history):  
-                    role = "Vous" if message["role"] == "user" else "Bot"
-                    st.write(f"**{role} :** {message['content']}")
+                    col1, col2 = st.columns([0.5, 4])  
+                    
+                    if message["role"] == "user":
+                        col1.image("img/user.png", width=60)  
+                    else:
+                        col1.image("img/bot.png", width=60)   
+                    
+                    col2.write(f"{message['content']}")
         else:
             if st.session_state.chat_history and st.session_state.chat_history[-1]["role"] == "assistant":
                 last_response = st.session_state.chat_history[-1]["content"]
-                st.text_area("Dernière réponse du bot", value=last_response, height=100, disabled=True)
+                st.text_area("Dernière réponse : ", value=last_response, height=100, disabled=True)
 
     def handle_user_input(self, user_input):
         """

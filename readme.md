@@ -106,7 +106,7 @@ python load_json.py
 2.  Exécutez l'application Streamlit (obligatoire !) :
 
 ```
-streamlit run App.py`
+streamlit run App.py
 ```
 
 3.  Accédez à l'interface via votre navigateur à l'adresse : http://localhost:8501

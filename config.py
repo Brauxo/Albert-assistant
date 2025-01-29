@@ -20,7 +20,7 @@ LANGUAGE = 'fr-FR' #pour la détection audio
 
 
 # Paramètre de la BDD
-MONGO_URL = "mongodb://mongo:27017/"  # Pour docker
-#MONGO_URL = "mongodb://localhost:27017/" # En local
+#MONGO_URL = "mongodb://mongo:27017/"  # Pour docker
+MONGO_URL = "mongodb://localhost:27017/" # En local
 DB_NAME = "chatbot_db"
 COLLECTION_NAME = "courses"
