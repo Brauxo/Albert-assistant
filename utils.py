@@ -86,7 +86,7 @@ class Utils:
     def process_input(messages):
         """Envoie la réponse de l'user à l'IA puis génère une réponse."""
         try:
-            system_prompt_message = {"role": "system", "content": SYSTEM_PROMPT}
+            system_prompt_message = {"role": "system", "content": SYSTEM_PROMPT} # Permet de ne pas manipuler le bot.
             messages_with_prompt = [system_prompt_message] + messages
             response = chat(model=MODEL_NAME, messages=messages_with_prompt)
             return response.message.content

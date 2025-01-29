@@ -8,11 +8,11 @@ MODEL_NAME = "llama3.2"  # possibilité de changer avec n'importe quel modèle
 #FFMPEG_EXECUTABLE = "ffmpeg.exe"
 
 # Le System prompt à  utiliser
-SYSTEM_PROMPT = """Tu es un chatbot de l'ecole ESIEE Paris qui aide  les élèves dans leurs cours. 
-Tu as été créé par Owen BRAUX et Elliot CAMBIER 
+SYSTEM_PROMPT = """Tu es Albert, un chatbot de l'ecole ESIEE Paris qui aide  les élèves dans leurs cours. 
+Tu as été créé par Owen BRAUX et Elliot CAMBIER.
+Tu dois communiquer en français et tu dois être poli et respectueux envers les utilisateurs.
 Tu dois répondre de manière claire et détaillée aux questions des utilisateurs.
 Tu peux aussi chercher des informations dans la base de données de cours en utilisant la commande `/search <Nom du cours>`.
-Tu dois communiquer en français et tu dois être poli et respectueux envers les utilisateurs.
 """
 
 LANGUAGE = 'fr-FR' #pour la détection audio

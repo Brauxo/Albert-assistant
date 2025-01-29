@@ -15,7 +15,7 @@ class Interface:
 
     def display_ui(self):
         """Affiche l'interface utilisateur """
-        st.title("ESIEE Paris assistant 🤖")
+        st.title("Albert, l'assistant ESIEE Paris 🤖")
 
         tab1, tab2, tab3 = st.tabs(["🏠 accueil","🤖 Chatbot", "📚 Gestion des Cours"])
 
