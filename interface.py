@@ -57,7 +57,28 @@ class Interface:
                 else:
                     st.error("Désolé, je n'ai pas compris ce que vous avez dit. Veuillez réessayer.")
 
+        ''' #Ancien affichage mais moche
+        if st.button("Changer l'affichage de la discussion"):
+            st.session_state.show_full_history = not st.session_state.show_full_history
+        '''
+        
         self.display_chat_history()
+
+                # Vide la mémoire
+        if st.button("Vider la mémoire"):
+            st.session_state.chat_history = []
+            st.success("Historique des conversations effacé !")
+        # Télécharge l'historique de la discussion
+        if st.session_state.chat_history:
+            chat_text = "\n".join(
+                [f"{'Vous' if msg['role'] == 'user' else 'Bot'}: {msg['content']}" for msg in st.session_state.chat_history]
+            )
+            st.download_button(
+                label="Télécharger l'historique des conversations",
+                data=chat_text,
+                file_name="historique_conversations.txt",
+                mime="text/plain",
+            )
 
     def display_course_management(self):
         """Affiche la gestion des cours : ajout et suppression."""
