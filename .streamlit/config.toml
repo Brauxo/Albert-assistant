@@ -1,0 +1,10 @@
+[theme]
+# Base theme (light or dark)
+base = "light"
+
+# Custom colors
+primaryColor = "#030d85"  
+backgroundColor = "#f7f5f5"  
+secondaryBackgroundColor = "#F0F2F6"  
+textColor = "#030d85"  
+font = "sans serif"  
