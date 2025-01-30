@@ -35,10 +35,15 @@ class Interface:
     def display_accueil(self):
         """Affiche l'interface de l'accueil."""
         st.header("Bienvenue sur l'accueil de l'assistant ESIEE Paris !")
-        st.write("""
-            Cet assistant vous permet d'interagir avec un chatbot pour obtenir de l'aide et gérer vos cours.
-            Utilisez les onglets ci-dessus pour naviguer entre les différentes fonctionnalités.
-            /search <query> pour rechercher des cours.
+
+        st.markdown("""
+            💬 Salut ! Je suis **Albert**, ton assistant intelligent dédié aux étudiants et enseignants de **l'ESIEE Paris**.  
+            Mon rôle est de t'accompagner au quotidien pour :
+            
+            - Répondre à tes questions et t’aider dans ta vie étudiante.
+            - T’aider à gérer et rechercher tes cours.
+            - Utilise la commande `/search <Nom du cours>` pour avoir un résumé détaillé de ton cours (grâce à la base de données)! 
+
         """)
 
     def display_chat_interface(self):
