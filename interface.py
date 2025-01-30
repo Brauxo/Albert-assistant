@@ -6,6 +6,7 @@ import threading
 class Interface:
     def __init__(self):
         st.set_page_config(page_title="AlbertESIEE", page_icon="🤖")
+        st.logo("img/ESIEE.png",size = "large",link = "https://www.esiee.fr/")
 
         if "chat_history" not in st.session_state:
             st.session_state.chat_history = []
