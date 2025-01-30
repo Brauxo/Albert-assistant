@@ -17,7 +17,7 @@ class Interface:
         """Affiche l'interface utilisateur """
         st.title("Albert, l'assistant ESIEE Paris 🤖")
 
-        tab1, tab2, tab3 = st.tabs(["🏠 accueil","🤖 Chatbot", "📚 Gestion des Cours"])
+        tab1, tab2, tab3, tab4 = st.tabs(["🏠 accueil","🤖 Chatbot", "📚 Gestion des Cours","👔 A propos"])
 
         with tab1:
             self.display_accueil()
@@ -28,6 +28,9 @@ class Interface:
         with tab3:
             self.display_course_management()
 
+        with tab4:
+            self.Contact()
+
     def display_accueil(self):
         """Affiche l'interface de l'accueil."""
         st.header("Bienvenue sur l'accueil de l'assistant ESIEE Paris !")
@@ -36,35 +39,6 @@ class Interface:
             Utilisez les onglets ci-dessus pour naviguer entre les différentes fonctionnalités.
             /search <query> pour rechercher des cours.
         """)
-
-
-        st.header("Qui sommes nous ?")
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.header("Elliot CAMBIER")
-            st.markdown("""
-                Étudiant en 4ème année d'ingénierie à l'ESIEE Paris, spécialisé en Data Science et Intelligence Artificielle (DSIA). 
-                Les projets liés à la Data Science m'intéressent particulièrement, notamment après avoir choisi l'année dernière des 
-                électives en Data Science, IA et Deep Learning.
-            """)
-            st.image("img/elliot.jpg", caption="Elliot Cambier")
-
-        with col2:
-            st.header("Owen BRAUX")
-            st.markdown("""
-                Je suis un étudiant en 4ème année à l'ESIEE Paris. Je suis passionné par l'analyse de données et l'intelligence artificielle, 
-                j'ai choisi de suivre la filière DSIA pour approfondir mes connaissances et compétences dans ces domaines en plein essor. Je collabore actuellement sur des LLM.
-            """)
-            st.image("img/owen.jpg", caption="Owen Braux")
-
-        st.header("Contact")
-        st.markdown("""
-            Vous pouvez nous contacter par email :
-            - [elliot.cambier@edu.esiee.fr](mailto:elliot.cambier@edu.esiee.fr) 
-            - [owen.braux@edu.esiee.fr](mailto:owen.braux@edu.esiee.fr)
-        """)
-
 
     def display_chat_interface(self):
         """Affiche l'interface du chatbot."""
@@ -143,6 +117,38 @@ class Interface:
                         Utils.delete_course(course["_id"])
                         st.warning(f"Le cours **{course['title']}** a été supprimé.")
                         st.rerun()  # Recharge la page après suppression
+
+
+    def Contact(self):
+        """Affiche les informations de contact."""
+        st.header("Qui sommes nous ?")
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.header("Elliot CAMBIER")
+            st.markdown("""
+                Étudiant en 4ème année d'ingénierie à l'ESIEE Paris, spécialisé en Data Science et Intelligence Artificielle (DSIA). 
+                Les projets liés à la Data Science m'intéressent particulièrement, notamment après avoir choisi l'année dernière des 
+                électives en Data Science, IA et Deep Learning.
+            """)
+            st.image("img/elliot.jpg", caption="Elliot Cambier")
+
+        with col2:
+            st.header("Owen BRAUX")
+            st.markdown("""
+                Je suis un étudiant en 4ème année à l'ESIEE Paris. Je suis passionné par l'analyse de données et l'intelligence artificielle, 
+                j'ai choisi de suivre la filière DSIA pour approfondir mes connaissances et compétences dans ces domaines en plein essor. Je collabore actuellement sur des LLM.
+            """)
+            st.image("img/owen.jpg", caption="Owen Braux")
+
+        st.header("Contact")
+        st.markdown("""
+            Vous pouvez nous contacter par email :
+            - [elliot.cambier@edu.esiee.fr](mailto:elliot.cambier@edu.esiee.fr) 
+            - [owen.braux@edu.esiee.fr](mailto:owen.braux@edu.esiee.fr)
+        """)
+
+
 
 
     def display_chat_history(self):
