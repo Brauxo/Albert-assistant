@@ -2,7 +2,7 @@
 
 ## **Vidéo :**
 
-[![My Video](https://img.youtube.com/vi/5tvYAbGCBac/maxresdefault.jpg)](https://www.youtube.com/watch?v=5tvYAbGCBac)
+![Demo](video/demo.gif)
 
 ## **Auteurs**
 
