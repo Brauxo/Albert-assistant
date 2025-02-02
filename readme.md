@@ -1,3 +1,8 @@
+![ESIEE](https://img.shields.io/badge/ESIEE%20Paris%20-%20Projet%20E4%20-%20green?style=flat)
+![Commit](https://img.shields.io/badge/last%20commit%20-%20February%202025%20-%20blue)
+![Maintainer](https://img.shields.io/badge/maintainer-Brauxo&cambierelliot-blue) 
+![OS](https://img.shields.io/badge/OS-windows%20%7C%20linux-lightgrey)
+
 # **Projet DEVOPS-CHATBOT**
 
 ## **Vidéo :**
