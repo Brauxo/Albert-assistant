@@ -34,7 +34,7 @@ class Interface:
 
     def display_accueil(self):
         """Affiche l'interface de l'accueil."""
-        st.header("Bienvenue sur l'accueil de l'assistant ESIEE Paris !")
+        st.header("Bienvenue sur l'accueil de l'app Albert !")
 
         st.markdown("""
             💬 Salut ! Je suis **Albert**, ton assistant intelligent dédié aux étudiants et enseignants de **l'ESIEE Paris**.  
