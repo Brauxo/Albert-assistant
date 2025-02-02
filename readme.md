@@ -25,29 +25,32 @@ Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un
 ---
 
 ## **Sommaire**
-1. [Prérequis d'installation](#1---prérequis-dinstallation)
+1. [Prérequis](#1---prérequis)
 2. [Installation](#2---installation)
-3. [Run](#3---run)
-4. [Fonctionnalités](#4---fonctionnalités)
-5. [To-DO](#5---to-do)
-
+3. [Exécution](#3---exécution)
+4. [Déploiement avec Docker](#4---déploiement-avec-docker)
+5. [Déploiement avec Kubernetes](#5---déploiement-avec-kubernetes)
+6. [Fonctionnalités](#6---fonctionnalités)
 ---
 
 ## **Guide de l'utilisateur**
 
-### **1 - Prérequis d'installation**
+### **1 - Prérequis**
 
-#### **I - Setup AWS**
+#### **I -Pour un Setup sur VM/AWS**
 
+1. **Setup up Docker :**
  **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**
- - Docker est utilisé pour conteneuriser et déployer l'application. 
 
- **AWS (en cours de développement)**
+2. **Setup up minikube (avec Kubernetes) :** 
+ **[Kubernetes](https://kubernetes.io/releases/download/)**
+ **[Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download)**
+
+3. **AWS (en cours de développement)**
  - Des configurations supplémentaires pour AWS seront fournies ultérieurement.
 
-#### **II - installation locale**
 
-Avant de commencer, il faut installer les outils suivants :
+#### **II -Pour une installation locale**
 
 1. **[ollama](https://ollama.com/)**
  - Installez Ollama pour accéder aux modèles LLM.
@@ -68,51 +71,53 @@ Avant de commencer, il faut installer les outils suivants :
 
 ### **2 - Installation**
 
-1. Clonez le projet :
-```
-git clone https://github.com/Brauxo/PROJET-CHATBOT
-```
+Clonez le projet et installez les dépendances :
 
-1.  Installez les dépendances Python nécessaires :
-```
+```sh
+git clone https://github.com/Brauxo/PROJET-CHATBOT
+cd PROJET-CHATBOT
+
 pip install -r requirements.txt
 ```
 
 * * * * *
 
-### **3 - Run**
+### **3 - Exécution**
 
-#### **I - Pour lancer l'application en local (sur son pc):**
-
+#### **Pour lancer l'application en local (sur son pc):**
 
 1.  Assurez-vous que les modèles LLM nécessaires sont téléchargés via Ollama et que Ollama soit lancé :
 ```
 `ollama start
 ```
-
-
-
 Nous conseillons llama3.2 ou llama3.2:1b . 
 En alternative : Le modèle DeepSeek-R1:1.5B, récemment lancé, est particulièrement intéressant car il nécessite très peu de puissance et offre des performances correctes. 
 ```
 ollama run llama3.2 
 ```
 
-Pour créer une base de données avec celle fournie (le json).
+2. Setup de la base de données.
+
+Pour créer une base de données avec celle fournie (le json)
 ```
 python load_json.py
 ```
 
-2.  Exécutez l'application Streamlit (obligatoire !) :
+De plus dans le fichier config.py il faut remplacer MONGO_URL par l'adresse locale de mongoDB : 
+```
+MONGO_URL = "mongodb://localhost:27017/"
+```
+
+3.  Exécutez l'application Streamlit (obligatoire !) :
 
 ```
 streamlit run App.py
 ```
 
-3.  Accédez à l'interface via votre navigateur à l'adresse : http://localhost:8501
+4.  Accédez à l'interface via votre navigateur à l'adresse : http://localhost:8501
 
-#### **I - Pour lancer l'application sur Docker :**
 
+### **4 - Déploiement avec Docker**
 
 Pour exécuter le projet sur Docker, il suffit de rentrer la commande suivante
 !!! IMPORTANT : L'initialisation du docker prend du temps (environ 10 minutes sur mon pc)
@@ -126,7 +131,12 @@ http://localhost:8501
 
 * * * * *
 
-### **4 - Fonctionnalités**
+### **5 - Déploiement avec Kubernetes**
+
+Pour le déploiement avec Kubernetes, nous utilisons minikube.
+
+
+### **6 - Fonctionnalités**
 
 L'application offre les fonctionnalités suivantes :
 
@@ -145,11 +155,4 @@ L'application offre les fonctionnalités suivantes :
 
 * * * * *
 
-### **5 - To-DO**
-
--   **Intégration AWS** 
--   **Docker** 
--   **Interface utilisateur avancée** 
-
-* * * * *
 

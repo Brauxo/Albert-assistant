@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatbot
+  template:
+    metadata:
+      labels:
+        app: chatbot
+    spec:
+      containers:
+        - name: chatbot
+          image: devops-chatbot-app:latest
+          ports:
+            - containerPort: 8501
+          env:
+            - name: BASE_URL
+              value: "http://ollama:11434"
+            - name: STREAMLIT_SERVER_ENABLE_CORS
+              value: "false"
+            - name: STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION
+              value: "false"
+            - name: MONGO_URI
+              value: "mongodb://mongo:27017"
+            - name: DB_NAME
+              value: "chatbot_db"
+            - name: COLLECTION_NAME
+              value: "courses"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbot
+spec:
+  selector:
+    app: chatbot
+  ports:
+    - protocol: TCP
+      port: 8501
+      targetPort: 8501
+  type: LoadBalancer 
