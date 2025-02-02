@@ -144,18 +144,28 @@ Pour le déploiement avec Kubernetes, nous utilisons minikube.
 
 L'application offre les fonctionnalités suivantes :
 
-1.  **Interaction via texte ou voix [DESACTIVE SUR DOCKER]**:
-    -   Entrez vos messages via le clavier ou utilisez le microphone pour une interaction vocale.
+1.  **Discussion avec Albert, un Chatbot qui aide les élèves** :
+    -   Dans l'onglet CHATBOT, vous avez accès à un terminal de discussion avec le modèle. 
 
-2.  **Gestion de l'historique des conversations** :
+2.  **Effacement des données** :
+    -   Réinitialisez facilement l'historique des conversations à tout moment.
+
+3.  **Gestion de l'historique des conversations** :
     -   L'historique complet de la conversation est affiché ou réduit à la dernière réponse du bot.
     -   Téléchargez l'historique en format texte pour une sauvegarde locale.
 
-3.  **Conversion texte-parole [DESACTIVE PAR DEFAULT]** :
-    -   Les réponses du chatbot peuvent être lues à haute voix via un moteur de synthèse vocale.
+4.  **Ajout/Supression de cours directement dans l'appli** :
+    -   Dans l'onglet Gestion de cours, nous pouvez ajouter des cours dans la BDD au format texte.
 
-4.  **Effacement des données** :
-    -   Réinitialisez facilement l'historique des conversations à tout moment.
+5.  **Fonctionalité /search <cours> pour avoir un résumé du cours** :
+    -   Le chatbot va analyser le cours et résumé les points clés de celui-ci.
+
+6.  **Interaction via texte ou voix [DESACTIVE SUR DOCKER]**:
+    -   Entrez vos messages via le clavier ou utilisez le microphone pour une interaction vocale.
+
+7.  **Conversion texte-parole [DESACTIVE PAR DEFAULT]** :
+    -   Les réponses du chatbot peuvent être lues à haute voix via un moteur de synthèse vocale.
+    -   reactivable mais demande une compréhension du code.
 
 * * * * *
 
