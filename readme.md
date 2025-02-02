@@ -1,5 +1,9 @@
 # **Projet DEVOPS-CHATBOT**
 
+## **Vidéo :**
+
+[Watch the demo video](img/demo.mp4)
+
 ## **Auteurs**
 
 **ESIEE PARIS projet DEVOPS de E4 fillière DSIA**
