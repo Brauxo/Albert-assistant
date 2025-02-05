@@ -128,8 +128,11 @@ streamlit run App.py
 
 ### **4 - Déploiement avec Docker**
 
-Pour exécuter le projet sur Docker, il suffit de rentrer la commande suivante
+Pour exécuter le projet sur Docker, il suffit de rentrer les deux commandes suivante
 !!! IMPORTANT : L'initialisation du docker prend du temps (environ 10 minutes sur mon pc)
+```
+docker build -t chatbot-app .
+```
 ```
 docker compose up -d
 ```

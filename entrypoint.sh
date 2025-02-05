@@ -1,17 +1,7 @@
 #!/bin/bash
-echo "Starting Ollama server..."
-ollama serve &
 
-echo "Waiting for Ollama server to be active..."
-while [ "$(ollama list | grep 'NAME')" == "" ]; do
-  sleep 1
-done
-
-# Le model à pull qui va être utilisé par docker
-ollama pull llama3.2
-
-echo "The model is correctly installed ! Waiting for Ollama server to be ready..."
-while ! curl -s http://localhost:11434/api/status; do
+echo "Waiting for Ollama..."
+while ! nc -z ollama 11434; do
     sleep 1
 done
 

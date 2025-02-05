@@ -1,9 +1,7 @@
 version: "3.9"
 services:
   chatbot-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: chatbot-app:latest
     ports:
       - "8501:8501"
     environment:
@@ -23,12 +21,15 @@ services:
     image: ollama/ollama:latest
     container_name: ollama
     ports:
-      - "11435:11434"  # tourne sur localhost:11435
+      - "11434:11434"  # tourne sur localhost:11435
     volumes:
       - ./model_files:/model_files  
+      - ./ollama.sh:/ollama.sh
     tty: true
+    command: "run llama3.2"
     networks:
       - chatbot-net
+    entrypoint: ["/usr/bin/bash", "/ollama.sh"]
 
   mongo:
     image: mongo:latest
