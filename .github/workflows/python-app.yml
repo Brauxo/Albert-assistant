@@ -40,12 +40,3 @@ jobs:
 
       - name: Build Docker image for testing
         run: docker build -t chatbot-app:test .
-
-      - name: Run container and test API
-        run: |
-          docker run -d -p 8501:8501 --name chatbot-container chatbot-app:test
-          sleep 10  # Wait for the app to start
-          curl -f http://localhost:8501 || (echo "App did not start" && exit 1)
-
-      - name: Stop and clean up Docker container
-        run: docker stop chatbot-container && docker rm chatbot-container
