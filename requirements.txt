@@ -7,3 +7,4 @@ PyAudio
 pyttsx3
 pynacl
 pymongo
+pytest

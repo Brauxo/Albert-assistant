@@ -2,14 +2,15 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: "3.9"
 
       - name: Upgrade pip and tools
         run: |
@@ -31,3 +32,18 @@ jobs:
       - name: Install dependencies with retries
         run: |
           for i in 1 2 3; do pip install -r requirements.txt && break || sleep 10; done
+
+      - name: Run tests with pytest
+        run: pytest src/test_utils.py
+
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: build-and-test  
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: docker build -t chatbot-app .
+
