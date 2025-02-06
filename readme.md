@@ -182,16 +182,15 @@ L'application offre les fonctionnalités suivantes :
 
 ### **7 - Pipelines et tests**
 
-Ce projet contient plusieurs pipelines afin de veiller au bon fonctionement de l'applciation lors des pulls requests, voici une expliquation rapide des tests :
+Ce projet contient plusieurs pipelines afin de veiller au bon fonctionement de l'application lors des pulls requests, voici une expliquation rapide des tests :
 
-1.  **ci-cd.yml** :
-    Ce pipeline définit les tâches de base du CI, telles que l'extraction du code, l'installation des dépendances et l'exécution des tests.
+**ci-cd.yml** : Ce pipeline définit les tâches de base du CI, telles que l'extraction du code, l'installation des dépendances et l'exécution des tests.
+**docker-image.yml** : Ce pipeline vérifie la création de l'image Docker chatbot app et qu'elle peut être déployée.
+**python-app.yml** : Cette pipeline vérfie le lancement de l'application python sous streamlit et son fonctionnement.
 
-2.  **docker-image.yml** :
-    Ce pipeline vérifie la création de l'image Docker chatbot app et qu'elle peut être déployée.
-
-3.  **python-app.yml** :
-    Cette pipeline vérfie le lancement de l'application python sous streamlit et son fonctionnement.
+Au final, nous avons décidé de combiner ces pipelines en un unique "grand test" afin d'éviter de trop utiliser les serveurs de github, 
+ce fichier est **test.yml** ! 
+Dans le dossier src se trouve egalement **test_utils.py** qui utilise pytest pour s'assurer du bon fonctionenment de le la partie backend de l'application (Mongo/Ollama).
 
 Normalement si tout se passe comme prévu, nous devons obtenir ce résultat : 
 ![pipeline](img/pipelines.png)
