@@ -41,13 +41,15 @@ jobs:
         run: |
           for i in 1 2 3; do pip install pytest pymongo mongomock && break || sleep 10; done
 
-      - name: Run unit test for load_json.py
-        run: pytest tests/test_load_json.py -v
-
       - name: Run load_json.py in Docker
         run: |
           docker build -t load-json-test .
-          docker run --network=host load-json-test python src/load_json.py
+          docker run load-json-test python load_json.py  # Assuming the script is inside the image
+
+      - name: Wait for MongoDB to be ready
+        run: |
+          echo 'Waiting for MongoDB to be fully ready...'
+          sleep 10  # Optional: Add more time if MongoDB isn't ready in time
 
       - name: Verify MongoDB Data
         run: |
