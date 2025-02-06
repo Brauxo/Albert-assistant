@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import Utils
+from src.utils import Utils
 #import pyttsx3 pour l'audio
 import threading
 

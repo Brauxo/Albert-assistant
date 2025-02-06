@@ -1,4 +1,4 @@
-from interface import Interface
+from src.interface import Interface
 
 #deploiement de l'app
 if __name__ == "__main__":

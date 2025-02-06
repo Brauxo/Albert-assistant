@@ -1,16 +1,18 @@
 import speech_recognition as sr
 from ollama import chat
 from ollama import Client
-from config import MODEL_NAME, SYSTEM_PROMPT, LANGUAGE, MONGO_URL, DB_NAME,COLLECTION_NAME
+from src.config import MODEL_NAME, SYSTEM_PROMPT, LANGUAGE, DB_NAME,COLLECTION_NAME
 import os
 import pymongo 
 from bson import ObjectId
 
 # check si c'est un env docker
-if os.path.exists('/.dockerenv'):
-    OLLAMA_BASE_URL = os.getenv("BASE_URL", "http://ollama:11434")  # Docker 
-else:
-    OLLAMA_BASE_URL = os.getenv("BASE_URL", "http://localhost:11434")  # Local 
+if os.path.exists('/.dockerenv'): # Pour Docker 
+    OLLAMA_BASE_URL = os.getenv("BASE_URL", "http://ollama:11434")  
+    MONGO_URL = "mongodb://mongo:27017/"
+else: # En Local 
+    OLLAMA_BASE_URL = os.getenv("BASE_URL", "http://localhost:11434")  
+    MONGO_URL = "mongodb://localhost:27017/"
 
 ollama_client = Client(host=OLLAMA_BASE_URL)  # utilise la bonne url
 

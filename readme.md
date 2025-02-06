@@ -107,6 +107,8 @@ ollama run llama3.2
 
 2. Setup de la base de données.
 
+Lancer une base de données sur [MongoDB Compass]()
+
 Pour créer une base de données avec celle fournie (le json)
 ```
 python load_json.py

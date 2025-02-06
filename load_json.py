@@ -1,6 +1,13 @@
 import json
 import pymongo
-from config import MONGO_URL, DB_NAME,COLLECTION_NAME
+import os
+from src.config import DB_NAME,COLLECTION_NAME
+
+# check si c'est un env docker
+if os.path.exists('/.dockerenv'): # Pour Docker 
+    MONGO_URL = "mongodb://mongo:27017/"
+else: # En Local 
+    MONGO_URL = "mongodb://localhost:27017/"
 
 def load_courses():
     """Charge les cours dans la BDD MongoDB."""
@@ -10,7 +17,7 @@ def load_courses():
         db = client[DB_NAME]
         collection = db[COLLECTION_NAME]
 
-        with open("courses.json", "r", encoding="utf-8") as file:
+        with open("data/courses.json", "r", encoding="utf-8") as file:
             courses = json.load(file)
 
         collection.insert_many(courses)

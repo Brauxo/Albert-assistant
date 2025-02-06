@@ -1,6 +1,9 @@
 # `ollama run deepseek-r1:1.5b` pour télécharger le bon modèle
 MODEL_NAME = "llama3.2"  # possibilité de changer avec n'importe quel modèle
 
+#OLLAMA_BASE_URL = os.getenv("BASE_URL", "http://ollama:11434")  #docker
+#OLLAMA_BASE_URL = os.getenv("BASE_URL", "http://localhost:11434")  #local
+
 # Ajoute des paths pour l'historique (pas utilisé dans le projet DEVOPS)
 #HISTORY_FILE = "chat_history.json"
 
@@ -20,7 +23,8 @@ LANGUAGE = 'fr-FR' #pour la détection audio
 
 
 # Paramètre de la BDD
-MONGO_URL = "mongodb://mongo:27017/"  # Pour docker
+#MONGO_URL = "mongodb://mongo:27017/"  # Pour docker
 #MONGO_URL = "mongodb://localhost:27017/" # En local
+
 DB_NAME = "chatbot_db"
 COLLECTION_NAME = "courses"
