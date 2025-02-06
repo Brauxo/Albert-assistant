@@ -31,22 +31,24 @@ Attention pour faire tourner ce projet dans des conditions optimale il est néce
 
 Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un modèle LLM (Large Language Model) de votre choix, avec le modèle **llama3.2** utilisé par défaut. Cette application offre des fonctionnalités d'interaction en langage naturel via texte ou microphone, ainsi que la possibilité de sauvegarder et télécharger l'historique des conversations.
 
----
+Ce projet utilise **GitHub Actions** pour l'intégration continue (CI) et le déploiement continu (CD), garantissant ainsi l'exécution automatique des tests, la construction et le déploiement de l'application. 
+
 
 ## **Sommaire**
 1. [Prérequis](#1---prérequis)
 2. [Installation](#2---installation)
-3. [Exécution](#3---exécution)
+3. [Exécution](#3---exécution-en-local)
 4. [Déploiement avec Docker](#4---déploiement-avec-docker)
 5. [Déploiement avec Kubernetes](#5---déploiement-avec-kubernetes)
 6. [Fonctionnalités](#6---fonctionnalités)
+7. [Pipelines et tests](#7---Pipelines-et-tests)
 ---
 
 ## **Guide de l'utilisateur**
 
 ### **1 - Prérequis**
 
-#### **I -Pour un Setup sur VM/AWS**
+#### **I -Pour un Setup sur VM/Cloud**
 
 1. **Setup up Docker :**
  **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**
@@ -55,8 +57,8 @@ Une application web permettant d'accéder à un assistant (CHATBOT) utilisant un
  **[Kubernetes](https://kubernetes.io/releases/download/)**
  **[Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download)**
 
-3. **AWS (en cours de développement)**
- - Des configurations supplémentaires pour AWS seront fournies ultérieurement.
+3. **Cloud**
+ - L'application peut être deployée sur une plateforme cloud (AWS/Azure/etc...) grâce à Docker ou Kubernetes.
 
 
 #### **II -Pour une installation locale**
@@ -91,7 +93,7 @@ pip install -r requirements.txt
 
 * * * * *
 
-### **3 - Exécution**
+### **3 - Exécution en local**
 
 #### **Pour lancer l'application en local (sur son pc):**
 
@@ -176,6 +178,23 @@ L'application offre les fonctionnalités suivantes :
 7.  **Conversion texte-parole [DESACTIVE PAR DEFAULT]** :
     -   Les réponses du chatbot peuvent être lues à haute voix via un moteur de synthèse vocale.
     -   reactivable mais demande une compréhension du code.
+
+
+### **7 - Pipelines et tests**
+
+Ce projet contient plusieurs pipelines afin de veiller au bon fonctionement de l'applciation lors des pulls requests, voici une expliquation rapide des tests :
+
+1.  **ci-cd.yml** :
+    Ce pipeline définit les tâches de base du CI, telles que l'extraction du code, l'installation des dépendances et l'exécution des tests.
+
+2.  **docker-image.yml** :
+    Ce pipeline vérifie la création de l'image Docker chatbot app et qu'elle peut être déployée.
+
+3.  **python-app.yml** :
+    Cette pipeline vérfie le lancement de l'application python sous streamlit et son fonctionnement.
+
+Normalement si tout se passe comme prévu, nous devons obtenir ce résultat : 
+![pipeline](img/pipelines.png)
 
 * * * * *
 
