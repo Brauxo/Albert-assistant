@@ -182,7 +182,9 @@ L'application offre les fonctionnalités suivantes :
 
 ### **7 - Pipelines et tests**
 
-Ce projet contient plusieurs pipelines afin de veiller au bon fonctionement de l'application lors des pulls requests, voici une expliquation rapide des tests :
+#### Utilisation d'outil CI/CD avec GitHub Actions
+
+Ce projet contient plusieurs pipelines afin de veiller au bon fonctionement de l'application lors des pulls requests sur GitHub, voici une expliquation rapide des tests :
 
 **ci-cd.yml** : Ce pipeline définit les tâches de base du CI, telles que l'extraction du code, l'installation des dépendances et l'exécution des tests.
 **docker-image.yml** : Ce pipeline vérifie la création de l'image Docker chatbot app et qu'elle peut être déployée.
@@ -190,10 +192,26 @@ Ce projet contient plusieurs pipelines afin de veiller au bon fonctionement de l
 
 Au final, nous avons décidé de combiner ces pipelines en un unique "grand test" afin d'éviter de trop utiliser les serveurs de github, 
 ce fichier est **test.yml** ! 
-Dans le dossier src se trouve egalement **test_utils.py** qui utilise pytest pour s'assurer du bon fonctionenment de le la partie backend de l'application (Mongo/Ollama).
 
 Normalement si tout se passe comme prévu, nous devons obtenir ce résultat : 
 ![pipeline](img/pipelines.png)
+
+#### Tests Unitaires : 
+
+Afin de tester la communication dans la partie backend du projet avec MongoDB et ollama, nous avons créer un fichier **test_utils.py** présent dans src,
+ce test utilise pytest pour s'assurer du bon fonctionenment de le la partie backend de l'application (Mongo/Ollama).
+
+On peut l'excuter avec cette commande : 
+```
+pytest src/test_utils.py
+```
+
+Si tout se passe corectement, on doit avoir ce résultat : 
+![test](img/test.PNG)
+
+Nous avons choisis de lancer le test sur Python 1.13 pour montrer la nécessité d'utiliser la version 3.9 qui évite plusieurs warning sur la partie audio du projet.
+
+
 
 * * * * *
 
