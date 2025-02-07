@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: chatbot
-          image: devops-chatbot-app:latest
+          image: brauxo/chatbot-app:latest
           ports:
             - containerPort: 8501
           env:
