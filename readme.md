@@ -196,6 +196,11 @@ ce fichier est **test.yml** !
 Normalement si tout se passe comme prévu, nous devons obtenir ce résultat : 
 ![pipeline](img/pipelines.png)
 
+#### Mis à jour de l'image docker du projet.
+
+**test.yml** s'occuppe egalement d'envoyer/mettre à jour l'image sur docker en utilisant GitHub actions et les identifants secrets du repo qui sont ceux de mon compte. 
+le lien vers l'image docker est le suivant : **brauxo/chatbot-app**
+
 #### Tests Unitaires : 
 
 Afin de tester la communication dans la partie backend du projet avec MongoDB et ollama, nous avons créer un fichier **test_utils.py** présent dans src,
