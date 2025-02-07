@@ -200,6 +200,7 @@ Normalement si tout se passe comme prévu, nous devons obtenir ce résultat :
 
 **test.yml** s'occuppe egalement d'envoyer/mettre à jour l'image sur docker en utilisant GitHub actions et les identifants secrets du repo qui sont ceux de mon compte. 
 le lien vers l'image docker est le suivant : **brauxo/chatbot-app**
+![dockerimage](img/dockerimage.PNG)
 
 #### Tests Unitaires : 
 
@@ -214,7 +215,7 @@ pytest src/test_utils.py
 Si tout se passe corectement, on doit avoir ce résultat : 
 ![test](img/test.PNG)
 
-Nous avons choisis de lancer le test sur Python 1.13 pour montrer la nécessité d'utiliser la version 3.9 qui évite plusieurs warning sur la partie audio du projet.
+Nous avons choisis de lancer le test sur Python 3.13 pour montrer la nécessité d'utiliser la version 3.9 qui évite plusieurs warning sur la partie audio du projet.
 
 
 
