@@ -145,11 +145,40 @@ L'app est désormais accessible sur ce lien.
 
 http://localhost:8501
 
+⚠️ Si le bot écrit une erreur indiquant que le modèle est inaccessible, c'est surement parce qu'il est en train d'être téléchargé. Il faut donc attendre un petit peu. 
+
+
 * * * * *
 
 ### **5 - Déploiement avec Kubernetes**
 
 Pour le déploiement avec Kubernetes, nous utilisons minikube.
+
+1.  Démarrer Kubernetes et miniuke
+
+```
+kubectl cluster-info
+```
+```
+minikube start
+```
+
+2.  Déployer MongoDB, Ollama et le l'application
+
+```
+kubectl apply -f mongo.yaml -f ollama.yaml -f chatbot.yaml
+```
+
+3.  Vérifier que tout est en cours d'exécution
+
+kubectl get pods
+
+Si c'est le cas, L'app est désormais accessible sur ce lien.
+
+http://localhost:8501
+
+
+
 
 
 ### **6 - Fonctionnalités**
