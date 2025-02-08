@@ -5,9 +5,11 @@
 
 # **Projet DEVOPS-CHATBOT**
 
+
 ## **Vidéo :**
 
 ![Demo](video/demo.gif)
+
 
 ## **Auteurs**
 
@@ -18,6 +20,7 @@
 
 **Année 2025**
 
+
 ## **REQUIREMENTS**
 
 Attention pour faire tourner ce projet dans des conditions optimale il est nécessaire d'avoir : 
@@ -26,6 +29,7 @@ Attention pour faire tourner ce projet dans des conditions optimale il est néce
 - Au moins 8 Gb de RAM (12 si CPU)
 
 (si c'est insuffisant il faut utiliser [llama3.2:1b](https://ollama.com/library/llama3.2))
+
 
 ## **Description**
 
@@ -43,6 +47,7 @@ Ce projet utilise **GitHub Actions** pour l'intégration continue (CI) et le dé
 6. [Fonctionnalités](#6---fonctionnalités)
 7. [Pipelines et tests](#7---Pipelines-et-tests)
 ---
+
 
 ## **Guide de l'utilisateur**
 
@@ -91,7 +96,6 @@ cd PROJET-CHATBOT
 pip install -r requirements.txt
 ```
 
-* * * * *
 
 ### **3 - Exécution en local**
 
@@ -145,10 +149,11 @@ L'app est désormais accessible sur ce lien.
 
 http://localhost:8501
 
-⚠️ Si le bot écrit une erreur indiquant que le modèle est inaccessible, c'est surement parce qu'il est en train d'être téléchargé. Il faut donc attendre un petit peu. 
+⚠️ Si le chatbot écrit cette erreur lors de l'envoie d'un message : 
+Error: model "llama3.2" not found, try pulling it first (status code: 404)
 
+C'est car le modèle est en train d'être téléchargé. Il faut donc attendre un petit peu. 
 
-* * * * *
 
 ### **5 - Déploiement avec Kubernetes**
 
@@ -163,22 +168,31 @@ kubectl cluster-info
 minikube start
 ```
 
-2.  Déployer MongoDB, Ollama et le l'application
+2.  Déployer MongoDB, Ollama et l'application
 
+Premièrement entrer cette commande : 
 ```
-kubectl apply -f mongo.yaml -f ollama.yaml -f chatbot.yaml
+kubectl apply -f mongo.yaml -f ollama.yaml 
+```
+Attendre une minute et lancer l'application
+```
+kubectl apply-f chatbot.yaml
 ```
 
 3.  Vérifier que tout est en cours d'exécution
 
 kubectl get pods
 
-Si c'est le cas, L'app est désormais accessible sur ce lien.
+4. Pour acceder à L'app : 
 
-http://localhost:8501
+Il faut ecrire cette commande 
+```
+minikube service chatbot --url
+```
 
+puis copier coller l'adresse dans un navigateur 
 
-
+⚠️ Il faut penser à pull manuelement le modèle directement sur le pod Ollama. Sinon passer par Docker.
 
 
 ### **6 - Fonctionnalités**
