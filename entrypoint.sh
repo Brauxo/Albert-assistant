@@ -11,7 +11,7 @@ while ! nc -z mongo 27017; do
 done
 
 echo "MongoDB is ready. Loading courses..."
-python3 src/load_json.py
+python3 load_json.py
 
 echo "Starting Streamlit..."
-streamlit run src/App.py --server.port=8501 --server.address=0.0.0.0
+streamlit run App.py --server.port=8501 --server.address=0.0.0.0
